@@ -26,12 +26,12 @@ namespace VectorSpace {
 		void PrintData();
 		int GetSize() { return m_vectorSize; }
 
-		void SetVectorId(int autoId) { m_vectorId = autoId; }
+		void SetVectorId(const int& autoId) { m_vectorId = autoId; }
 		const int GetVectorId() const{ return m_vectorId; }
 
 	private:
 		std::optional<int> IsDuplicateDataInVectorReturnIdx(Type data);
-		void ShiftLeftSortingAfterDeleteDataInVector(int index);
+		void ShiftLeftSortingAfterDeleteDataInVector(const int& index);
 
 		int m_vectorId;
 		int m_vectorSize;
@@ -47,12 +47,12 @@ namespace VectorSpace {
 		virtual ~VectorManager() { std::cout << "Delete VectorManager" << std::endl; };
 
 		void CreateVector(std::shared_ptr<Vector<Type>> newVector);
-		bool Append(int varId, Type data);
+		bool Append(const int& varId, Type data);
 		
 		void PrintInformation();
 		
-		bool DeleteDataInVector(int varId, Type data);
-		bool DeleteVector(int varId);			
+		bool DeleteDataInVector(const int& varId, Type data);
+		bool DeleteVector(const int& varId);
 
 	private:
 		std::map<int, std::shared_ptr<Vector<Type>>> m_id2Vector{};
@@ -77,7 +77,7 @@ namespace VectorSpace {
 	}
 
 	template <class Type>
-	void Vector<Type>::ShiftLeftSortingAfterDeleteDataInVector(int index) 
+	void Vector<Type>::ShiftLeftSortingAfterDeleteDataInVector(const int& index)
 	{
 		for (int i = index; i < m_vectorSize; i++)
 		{
@@ -154,7 +154,7 @@ namespace VectorSpace {
 	}
 
 	template <class Type>
-	bool VectorManager<Type>::Append(int varId, Type data)
+	bool VectorManager<Type>::Append(const int& varId, Type data)
 	{
 		if (varId <= 0)
 			assert(0);
@@ -182,13 +182,13 @@ namespace VectorSpace {
 	}
 
 	template <class Type>
-	bool VectorManager<Type>::DeleteDataInVector(int varId, Type data) 
+	bool VectorManager<Type>::DeleteDataInVector(const int& varId, Type data)
 	{
 		return m_id2Vector[varId]->DeleteData(data);
 	}
 
 	template <class Type>
-	bool VectorManager<Type>::DeleteVector(int varId) 
+	bool VectorManager<Type>::DeleteVector(const int& varId)
 	{
 		if (varId <= 0)
 			return false;

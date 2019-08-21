@@ -14,12 +14,12 @@ namespace VectorSpace
 		virtual ~VectorManager() = default;
 		
 		void CreateVector(std::shared_ptr<Vector> newVector);
-		bool Append(int varId, int data);
+		bool Append(const int& varId, const int& data);
 
 		void PrintInformation();
 
-		bool DeleteDataInVector(int varId, int data);
-		bool DeleteVector(int varId);
+		bool DeleteDataInVector(const int& varId, const int& data);
+		bool DeleteVector(const int& varId);
 
 	private :
 		std::map<int, std::shared_ptr<Vector>> m_id2Vector;

@@ -14,7 +14,7 @@ namespace VectorSpace
 		m_id2Vector.emplace(autoIncreasementVectorId, newVector);
 	}
 
-	bool VectorManager::Append(int varId, int data)
+	bool VectorManager::Append(const int& varId, const int& data)
 	{
 		// 아이디는 0 초과
 		if (varId <= 0)
@@ -43,7 +43,7 @@ namespace VectorSpace
 	}
 
 
-	bool VectorManager::DeleteDataInVector(int varId, int data)
+	bool VectorManager::DeleteDataInVector(const int& varId, const int& data)
 	{
 		if (const auto& isExistVector = m_id2Vector[varId]; !isExistVector)
 			return false;
@@ -52,7 +52,7 @@ namespace VectorSpace
 	}
 
 
-	bool VectorManager::DeleteVector(int varId)
+	bool VectorManager::DeleteVector(const int& varId)
 	{
 		if (varId <= 0)
 			return false;

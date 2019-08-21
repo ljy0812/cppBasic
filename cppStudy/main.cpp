@@ -79,7 +79,9 @@ int main()
 		}
 
 
-		std::unique_ptr<VectorSpace::VectorManager<double>> vectorManagerForDoubleType = std::make_unique<VectorSpace::VectorManager<double>>();
+		std::unique_ptr<VectorSpace::VectorManager<double>> vectorManagerForDoubleType 
+			= std::make_unique<VectorSpace::VectorManager<double>>();
+
 		//Initial 3 Double Vector
 		{
 			PrintMessage("----------Apeend Double Data--------------");

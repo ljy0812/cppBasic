@@ -13,7 +13,7 @@ namespace VectorSpace
 	}
 
 
-	bool Vector::AddData(int data)
+	bool Vector::AddData(const int& data)
 	{
 		if (const auto& index = IsDuplicateDataInVectorReturnIdx(data); !index) {
 			m_pData[m_vectorSize] = data;
@@ -27,7 +27,7 @@ namespace VectorSpace
 		}
 	}
 
-	std::optional<int> Vector::IsDuplicateDataInVectorReturnIdx(int data)
+	std::optional<int> Vector::IsDuplicateDataInVectorReturnIdx(const int& data)
 	{
 		for (int i = 0; i < m_vectorSize; i++)
 		{
@@ -40,7 +40,7 @@ namespace VectorSpace
 		return {};
 	}
 
-	bool Vector::DeleteData(int data)
+	bool Vector::DeleteData(const int& data)
 	{
 		if (const auto& index = IsDuplicateDataInVectorReturnIdx(data); index)
 		{
@@ -53,7 +53,7 @@ namespace VectorSpace
 		return false;
 	}
 
-	void Vector::ShiftLeftSortingAfterDeleteDataInVector(int index)
+	void Vector::ShiftLeftSortingAfterDeleteDataInVector(const int& index)
 	{
 		for (int i = index; i < m_vectorSize; i++)
 		{
@@ -80,7 +80,7 @@ namespace VectorSpace
 		return m_vectorSize;
 	}
 
-	void Vector::SetVectorId(int autoId)
+	void Vector::SetVectorId(const int& autoId)
 	{
 		m_vectorId = autoId;
 	}
